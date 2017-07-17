@@ -1,0 +1,87 @@
+body {
+    /*background: repeating-linear-gradient(45deg, white 0px, lightblue 100px);*/
+    /*height: 500px;*/
+    /*background-size: 500px 500px;*/
+    /*background-repeat: no-repeat;*/
+}
+
+html {
+    /*height: 100%;*/
+}
+
+#container {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    /*border: solid red 1px;*/
+}
+
+#halfclip {
+    width: 0;
+    height: 100%;
+    right: 0px;
+    position: absolute;
+    overflow: hidden;
+    transform-origin: left center;
+}
+
+#container:hover #halfclip {
+    animation: cliprotate 6s 1;
+    transform: rotate(180deg);
+    width: 50%;
+
+}
+
+@keyframes cliprotate {
+    0% {transform: rotate(-1deg);}
+    49.999% {transform: rotate(-1deg);}
+    50% {transform: rotate(180deg);}
+    100% {transform: rotate(180deg);}
+}
+
+.halfcircle {
+    box-sizing: border-box;
+    height: 100%;
+    right: 0px;
+    position: absolute;
+    border: solid 100px transparent;
+    border-top-color: blue;
+    border-left-color: blue;
+    border-radius: 50%;
+}
+
+#clipped {
+    width: 200%;
+    transform: rotate(-45deg);
+}
+#container:hover #clipped {
+    transform: rotate(135deg);
+    animation: rotate 3s linear 2;
+}
+
+
+@keyframes rotate {
+    0% {transform: rotate(-45deg);}
+    100% {transform: rotate(135deg);}
+}
+
+
+#fixed {
+    width: 100%;
+    transform: rotate(135deg);
+    opacity: 0;
+}
+
+#container:hover #fixed {
+    opacity: 1;
+    animation: showfixed 6s 1;
+}
+
+
+
+@keyframes showfixed {
+    0% {opacity: 0;}
+    50% {opacity: 0;}
+    50.001% {opacity: 1;}
+    100% {opacity: 1;}
+}
